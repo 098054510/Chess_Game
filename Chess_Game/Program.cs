@@ -6,9 +6,7 @@ namespace Chess_Game
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
-            Console.WriteLine("Changes to get start the project");
-            Console.ReadLine();
+
         }
     }
 }
