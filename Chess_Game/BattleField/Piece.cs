@@ -25,9 +25,9 @@
             Movement--;
         }
 
-        public bool PossibleMovementExists()
+        public bool possibleMovementExists()
         {
-            bool[,] mat = PossibleMovements();
+            bool[,] mat = PossiblesMovements();
             for (int i=0; i<Bat.Line; i++)
             {
                 for (int j=0; i<Bat.Collum; j++)
