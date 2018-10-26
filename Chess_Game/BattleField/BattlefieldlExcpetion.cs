@@ -4,7 +4,9 @@ using System.Text;
 
 namespace Chess_Game.BattleField
 {
-    class BattlefieldlExcpetion
+    class BattlefieldlException : Exception 
     {
+        public BattlefieldlException(string msg) : base(msg) {
+        }
     }
 }
