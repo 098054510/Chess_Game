@@ -31,7 +31,7 @@ namespace Chess_Game.BattleField
             return piece(position) != null;
         }
 
-        public void PutPiece(Piece p, Position position)
+        public void PuttPiece(Piece p, Position position)
         {
             if (PieceExists(position))
             {

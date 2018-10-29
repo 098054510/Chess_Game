@@ -28,5 +28,20 @@ namespace Chess
             captureds = new HashSet<Piece>();
             PuttPieces();
         }
+
+        public Piece ExecuteMovement(Position source, Position destiny)
+        {
+            Piece piece = Bat.RemovePiece(source);
+            piece.ToIncreaseMovement();
+            Piece capturedPiece = Bat.RemovePiece(destiny);
+            Bat.PuttPiece(piece, destiny);
+            if (capturedPiece != null)
+            {
+                captureds.Add(capturedPiece);
+            }
+
+            //Especia play Little Roque
+            if (piece is )
+        }
     }
 }
