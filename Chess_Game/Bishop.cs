@@ -1,7 +1,4 @@
 ﻿using Chess_Game.BattleField;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Chess
 {
@@ -22,7 +19,7 @@ namespace Chess
             return piece == null || piece.color != color;
         }
 
-        public override bool[,] PossibleMovement()
+        public override bool[,] PossiblesMovements()
         {
             bool[,] mat = new bool[Bat.Line, Bat.Collum];
 
