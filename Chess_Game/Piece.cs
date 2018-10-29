@@ -28,9 +28,9 @@
         public bool possibleMovementExists()
         {
             bool[,] mat = PossiblesMovements();
-            for (int i=0; i<Bat.Line; i++)
+            for (int i = 0; i < Bat.Line; i++)
             {
-                for (int j=0; i<Bat.Collum; j++)
+                for (int j = 0; i < Bat.Collum; j++)
                 {
                     if (mat[i, j])
                     {

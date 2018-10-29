@@ -35,7 +35,7 @@ namespace Chess_Game.BattleField
         {
             if (PieceExists(position))
             {
-                throw new BattlefieldlException("There is already a piece there."); 
+                throw new BattlefieldlException("There is already a piece there.");
             }
             pieces[position.Line, position.Collum] = p;
             p.position = position;
@@ -55,7 +55,7 @@ namespace Chess_Game.BattleField
 
         public bool ValidPosition(Position position)
         {
-            if (position.Line < 0 || position.Line >= Line || position.Collum <0 || position.Collum >= Collum)
+            if (position.Line < 0 || position.Line >= Line || position.Collum < 0 || position.Collum >= Collum)
             {
                 return false;
             }

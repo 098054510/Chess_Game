@@ -4,9 +4,10 @@ using System.Text;
 
 namespace Chess_Game.BattleField
 {
-    class BattlefieldlException : Exception 
+    class BattlefieldlException : Exception
     {
-        public BattlefieldlException(string msg) : base(msg) {
+        public BattlefieldlException(string msg) : base(msg)
+        {
         }
     }
 }
