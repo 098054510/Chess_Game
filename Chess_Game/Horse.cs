@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Chess_Game.BattleField;
+﻿using Chess_Game.BattleField;
 
-namespace Chess_Game
+namespace Chess
 {
     class Horse : Piece
     {
@@ -47,7 +44,8 @@ namespace Chess_Game
             }
 
             position.SetValues(position.Line - 1, position.Collum + 2);
-            if (Bat.ValidPosition(position) && CanMove(position){
+            if (Bat.ValidPosition(position) && CanMove(position))
+            {
                 mat[position.Line, position.Collum] = true;
             }
 
