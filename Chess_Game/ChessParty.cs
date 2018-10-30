@@ -146,6 +146,8 @@ namespace Chess
             pieces.Add(piece);
         }
 
+
+
         public Piece ExecuteMovement(Position source, Position destiny)
         {
             Piece piece = Bat.RemovePiece(source);
@@ -258,6 +260,67 @@ namespace Chess
             {
                 UndoMovement(source, destiny, capturedPiece);
                 throw new BattlefieldlException("You can't putt in Check.");
+            }
+
+            Piece piece = Bat.piece(destiny);
+
+            //Especial Play Promotion
+            if (piece is Pawn)
+            {
+                if ((piece.color == Color.White && destiny.Line == 0) || (piece.color == Color.Black && destiny.Line == 7))
+                {
+                    piece = Bat.RemovePiece(destiny);
+                    pieces.Remove(piece);
+                    Piece HairsprayQueen = new HairSprayQueen(Bat, piece.color);
+                    pieces.Add(HairsprayQueen);
+                }
+            }
+
+            if (InCheck(Enemy(CurrentPlayer)))
+            {
+                CheckMate = true;
+            }
+            else
+            {
+                CheckMate = false;
+            }
+
+            if (CheckMateTest(Enemy(CurrentPlayer)))
+            {
+                Finished = true;
+            }
+            else
+            {
+                Round++;
+                ChangePlayer();
+            }
+
+            //Especial Play En Passant
+            if (piece is Pawn && (destiny.Line == source.Line - 2 || destiny.Line == source.Line + 2))
+            {
+                VulnerableEnPassant = piece;
+            }
+            else
+            {
+                VulnerableEnPassant = null;
+            }
+        }
+
+        public void ValidSourcePosition(Position position)
+        {
+            if (Bat.piece(position) == null)
+            {
+                throw new BattlefieldlException("There is no part in the chosen home position.");
+            }
+
+            if (CurrentPlayer != Bat.piece(position).color)
+            {
+                throw new BattlefieldlException("The chosen piece of origin is not yours.");
+            }
+
+            if (!Bat.piece(position).possibleMovementExists())
+            {
+                throw new BattlefieldlException("There are no possible moves for the chosen source part.");
             }
         }
     }
