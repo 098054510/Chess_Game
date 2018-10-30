@@ -74,8 +74,6 @@ namespace Chess
             }
 
             return mat;
-
-            //
         }
     }
 }
