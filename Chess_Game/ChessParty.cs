@@ -58,12 +58,13 @@ namespace Chess
             HashSet<Piece> aux = new HashSet<Piece>();
             foreach (Piece x in pieces)
             {
-                if (x is King)
+                if (x.color == color)
                 {
-                   Console.WriteLine(x);
+                    aux.Add(x);
                 }
             }
-            return null;
+            aux.ExceptWith(capturedPieces(color));
+            return aux;
         }
 
         private Color Enemy(Color color)
