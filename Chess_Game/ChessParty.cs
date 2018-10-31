@@ -13,7 +13,7 @@ namespace Chess
         public bool Finished { get; private set; }
         private HashSet<Piece> pieces;
         private HashSet<Piece> captureds;
-        public bool CheckMate { get; private set; }
+        public bool Check { get; private set; }
         public Piece VulnerableEnPassant { get; private set; }
         
         public ChessParty()
@@ -22,7 +22,7 @@ namespace Chess
             Round = 1;
             CurrentPlayer = Color.White;
             Finished = false;
-            CheckMate = false;
+            Check = false;
             VulnerableEnPassant = null;
             pieces = new HashSet<Piece>();
             captureds = new HashSet<Piece>();
@@ -277,11 +277,11 @@ namespace Chess
 
             if (InCheck(Enemy(CurrentPlayer)))
             {
-                CheckMate = true;
+                Check = true;
             }
             else
             {
-                CheckMate = false;
+                Check = false;
             }
 
             if (CheckMateTest(Enemy(CurrentPlayer)))

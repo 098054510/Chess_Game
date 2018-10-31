@@ -91,7 +91,7 @@ namespace Chess
             }
 
             //Especial Play Roque
-            if (Movement==0 && !chessParty.CheckMate)
+            if (Movement==0 && !chessParty.Check)
             {
                 //Especial Play Little Roque
                 Position position1 = new Position(position.Line, position.Collum + 3);
