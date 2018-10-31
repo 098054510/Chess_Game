@@ -26,7 +26,6 @@ namespace Chess
             VulnerableEnPassant = null;
             pieces = new HashSet<Piece>();
             captureds = new HashSet<Piece>();
-            PuttPiece();
         }
 
         private void ChangePlayer()
@@ -61,7 +60,7 @@ namespace Chess
             {
                 if (x is King)
                 {
-                    return x;
+                   Console.WriteLine(x);
                 }
             }
             return null;
@@ -322,6 +321,51 @@ namespace Chess
             {
                 throw new BattlefieldlException("There are no possible moves for the chosen source part.");
             }
+        }
+
+        public void ValidDestinyPosition(Position source, Position destiny)
+        {
+            if (!Bat.piece(source).PossibleMovement(destiny))
+            {
+                throw new BattlefieldlException("Invalid Destiny Position.");
+            }
+        }
+
+        private void PuttPieces()
+        {
+            PuttNewPiece('a', 1, new Tower(Bat, Color.White));
+            PuttNewPiece('b', 1, new Horse(Bat, Color.White));
+            PuttNewPiece('c', 1, new Bishop(Bat, Color.White));
+            PuttNewPiece('d', 1, new HairSprayQueen(Bat, Color.White));
+            PuttNewPiece('e', 1, new King(Bat, Color.White, this));
+            PuttNewPiece('f', 1, new Bishop(Bat, Color.White));
+            PuttNewPiece('g', 1, new Horse(Bat, Color.White));
+            PuttNewPiece('h', 1, new Tower(Bat, Color.White));
+            PuttNewPiece('a', 2, new Pawn(Bat, Color.White, this));
+            PuttNewPiece('b', 2, new Pawn(Bat, Color.White, this));
+            PuttNewPiece('c', 2, new Pawn(Bat, Color.White, this));
+            PuttNewPiece('d', 2, new Pawn(Bat, Color.White, this));
+            PuttNewPiece('e', 2, new Pawn(Bat, Color.White, this));
+            PuttNewPiece('f', 2, new Pawn(Bat, Color.White, this));
+            PuttNewPiece('g', 2, new Pawn(Bat, Color.White, this));
+            PuttNewPiece('h', 2, new Pawn(Bat, Color.White, this));
+
+            PuttNewPiece('a', 8, new Tower(Bat, Color.Black));
+            PuttNewPiece('b', 8, new Horse(Bat, Color.Black));
+            PuttNewPiece('c', 8, new Bishop(Bat, Color.Black));
+            PuttNewPiece('d', 8, new HairSprayQueen(Bat, Color.Black));
+            PuttNewPiece('e', 8, new King(Bat, Color.Black, this));
+            PuttNewPiece('f', 8, new Bishop(Bat, Color.Black));
+            PuttNewPiece('g', 8, new Horse(Bat, Color.Black));
+            PuttNewPiece('h', 8, new Tower(Bat, Color.Black));
+            PuttNewPiece('a', 7, new Pawn(Bat, Color.Black, this));
+            PuttNewPiece('b', 7, new Pawn(Bat, Color.Black, this));
+            PuttNewPiece('c', 7, new Pawn(Bat, Color.Black, this));
+            PuttNewPiece('d', 7, new Pawn(Bat, Color.Black, this));
+            PuttNewPiece('e', 7, new Pawn(Bat, Color.Black, this));
+            PuttNewPiece('f', 7, new Pawn(Bat, Color.Black, this));
+            PuttNewPiece('g', 7, new Pawn(Bat, Color.Black, this));
+            PuttNewPiece('h', 7, new Pawn(Bat, Color.Black, this));
         }
     }
 }
